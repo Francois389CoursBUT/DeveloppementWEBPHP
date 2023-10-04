@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>TP3-PHP</title>
+    <title>TP3-1-PHP</title>
     <link rel="stylesheet" href="TP3.css">
     <link rel="stylesheet" href="../framework/bootstrap-4.6.2-dist/css/bootstrap.css" >
 </head>
@@ -26,7 +26,7 @@
                 <p for="email">Dipl&ocirc;me pr&eacute;par&eacute; :</p>
                 <select name="formation" id="formation" class="custom-select">
                     <option value="none">S&eacute;lectionner dans la liste</option>
-                    <option value="GEA">BUT GEA</option>
+                    <option value="GEA" >BUT GEA</option>
                     <option value="Informatique">BUT Informatique</option>
                     <option value="QLIO">BUT QLIO</option>
                     <option value="CJ">BUT CJ</option>

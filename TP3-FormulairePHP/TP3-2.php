@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TP3-PHP</title>
+    <title>TP3-2-PHP</title>
     <link rel="stylesheet" href="TP3.css">
     <link rel="stylesheet" href="../framework/bootstrap-4.6.2-dist/css/bootstrap.css" >
 </head>
@@ -19,43 +19,47 @@ $prenomRempli = !empty($_GET['prenom']);
 $formationRempli = isset($_GET['formation']) && $_GET['formation'] != "none";
 $questionRempli = !empty($_GET['question']);
 
-/**
- * Si le champ est remplie, on affiche la valeur du champ
- * sinon on met un message d'erreur
- * @param $valide boolean Indique si le champ est valide
- * @param $valeurChamp String La valeur du champ
- * @param $nomChamp String Le nom du champ
- */
-function afficherChamps($valide, $valeurChamp, $nomChamp) {
-    if ($valide) {
-        $valeurChamp = htmlentities($valeurChamp);
-        echo "<p class='ok'>Votre ".$nomChamp." : ".$valeurChamp."</p>";
-    } else {
-        echo "<p class='erreur'>Merci de rentrer votre ".$nomChamp." !</p>";
-    }
-}
-
 ?>
 <div class="container">
     <div class="row">
         <div class="col-4">
             <?php
-            afficherChamps($nomRempli,$_GET['nom'],"nom");
+            if ($nomRempli) {
+                $valeurChamp = htmlentities($_GET['nom']);
+                echo "<p class='ok'>Votre nom : ".$valeurChamp."</p>";
+            } else {
+                echo "<p class='erreur'>Merci de rentrer votre nom !</p>";
+            }
             ?>
         </div>
         <div class="col-4">
             <?php
-            afficherChamps($prenomRempli,$_GET['prenom'],"pr&eacute;nom");
+            if ($prenomRempli) {
+                $valeurChamp = htmlentities($_GET['prenom']);
+                echo "<p class='ok'>Votre prénom : ".$valeurChamp."</p>";
+            } else {
+                echo "<p class='erreur'>Merci de rentrer votre prénom !</p>";
+            }
             ?>
         </div>
         <div class="col-4">
             <?php
-            afficherChamps($formationRempli,$_GET['formation'],"dipl&ocirc;me");
+            if ($formationRempli) {
+                $valeurChamp = htmlentities($_GET['formation']);
+                echo "<p class='ok'>Votre diplome : ".$valeurChamp."</p>";
+            } else {
+                echo "<p class='erreur'>Merci de rentrer votre diplome !</p>";
+            }
             ?>
         </div>
         <div class="col-12">
             <?php
-            afficherChamps($questionRempli,$_GET['question'],"question");
+            if ($questionRempli) {
+                $valeurChamp = htmlentities($valeurChamp);
+                echo "<p class='ok'>Votre question : ".$valeurChamp."</p>";
+            } else {
+                echo "<p class='erreur'>Merci de rentrer votre question !</p>";
+            }
             ?>
         </div>
     </div>
