@@ -1,0 +1,29 @@
+.rouge {
+    color: red;
+}
+
+.noir {
+    color: black;
+}
+
+table {
+    font-size: 20px;
+}
+
+td {
+    border: 2px double black;
+    text-align: center;
+    width: 30px;
+}
+.entete {
+    font-weight: bold;
+    font-size: 25px;
+    background-color: gray;
+}
+
+
+.diagonale {
+    background-color: gray;
+    font-weight: bold;
+    font-size: 25px;
+}
