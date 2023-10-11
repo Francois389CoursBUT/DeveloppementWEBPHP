@@ -116,7 +116,6 @@ function afficherOption($value, $textDisplay , $isSelected = false)
             </div>
         </form>
     </div>
-</div>
 
 </body>
 </html>

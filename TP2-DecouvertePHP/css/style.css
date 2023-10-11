@@ -18,12 +18,12 @@ td {
 .entete {
     font-weight: bold;
     font-size: 25px;
-    background-color: gray;
+    background-color: rgb(128, 128, 128);
 }
 
 
 .diagonale {
-    background-color: gray;
+    background-color: rgb(128, 128, 128);
     font-weight: bold;
     font-size: 25px;
 }

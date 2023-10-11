@@ -40,7 +40,7 @@
     <h1>Etape 4</h1>
         <?php
             $destination = array(
-                'Rodez'=>'http://www.ville.rodez.fr',
+                'Rodez'=> 'https://www.ville.rodez.fr',
                 'Montpellier'=>'https://www.montpellier.fr/',
                 'Toulouse'=>'https://toulouse.fr/',
                 'Limoges'=>'https://www.limoges.fr/',
