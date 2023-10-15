@@ -33,16 +33,20 @@ function afficherOption($value, $textDisplay, $isSelected = false)
 
 ?>
 <div class="container-fluid">
-    <!-- Présentation et Resultat -->
+    <!-- Présentation et Résultat -->
     <div class="row cadre ">
         <div class="col-12">
 
 
             <?php
+            /* On vérifie que toutes les listes ont un élément sélectionné */
             $sontSet = true;
-            for ($k = 1; $k < count($tabExGen) + 1; $k++) {
-                 $sontSet &= isset($_GET[$k]);
+            if (isset($tabExGen)) {
+                for ($k = 1; $k < count($tabExGen) + 1; $k++) {
+                    $sontSet &= isset($_GET[$k]);
+                }
             }
+            /* Si toutes les listes ont un élément sélectionné, on affiche le résultat */
             if ($sontSet) {
                 echo '<h1>Mon excuse</h1>';
                 echo "<h2>";
@@ -50,14 +54,15 @@ function afficherOption($value, $textDisplay, $isSelected = false)
                     echo $_GET[$k] . " ";
                 }
                 echo "</h2>";
+            /* Sinon, on affiche le message de bienvenue par défaut */
             } else {
-                echo '<h1>Tous les lundis, une excuse différente ! </h1>';
+                echo '<h1>Tous les lundis, une excuse diff&eacute;rente !</h1>';
             }
 
 
             ?>
 
-            Générez votre excuse du lundi matin en sélectionnant les différents champs.<br/>
+            G&eacute;n&eacute;rez votre excuse du lundi matin en s&eacute;lectionnant les diff&eacute;rents champs.<br/>
         </div>
     </div>
 
@@ -68,14 +73,17 @@ function afficherOption($value, $textDisplay, $isSelected = false)
 
                 <?php
                 $i = 1;
-                foreach ($tabExGen as $tabEx) {
+                foreach ($tabExGen as $tabEx) { // Parcours du tableau général
                     $j = 1;
                     echo "<select name='" . $i . "'>";
+                    // Parcours des sous tableaux de phrases
                     foreach ($tabEx as $phrase) {
-                        if (!$sontSet) {
-                            afficherOption($phrase, $phrase); //echo "<option value='.$phrase.'>$phrase</option>";
-                        } else {
+                        // Si toutes les listes ont un élément sélectionné, on affiche la liste avec l'élément sélectionné
+                        if ($sontSet) {
                             afficherOption($phrase, $phrase, $_GET[$i]==$phrase);
+                        // Sinon, on affiche la liste normalement
+                        } else {
+                            afficherOption($phrase, $phrase); //echo "<option value='.$phrase.'>$phrase</option>";
                         }
                         $j++;
                     }
