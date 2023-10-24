@@ -11,7 +11,6 @@ include("tableauPhrases.php");
 
     <!-- Bootstrap CSS -->
     <link href="framework/bootstrap-4.6.2-dist/css/bootstrap.css" rel="stylesheet">
-
 </head>
 <body>
 <?php
@@ -37,13 +36,12 @@ function afficherOption($value, $textDisplay, $isSelected = false)
     <div class="row cadre ">
         <div class="col-12">
 
-
             <?php
             /* On vérifie que toutes les listes ont un élément sélectionné */
             $sontSet = true;
             if (isset($tabExGen)) {
                 for ($k = 1; $k < count($tabExGen) + 1; $k++) {
-                    $sontSet &= isset($_GET[$k]);
+                    $sontSet &= isset($_GET['var'.$k]);
                 }
             }
             /* Si toutes les listes ont un élément sélectionné, on affiche le résultat */
@@ -51,7 +49,7 @@ function afficherOption($value, $textDisplay, $isSelected = false)
                 echo '<h1>Mon excuse</h1>';
                 echo "<h2>";
                 for ($k = 1; $k < count($tabExGen) + 1; $k++) {
-                    echo $_GET[$k] . " ";
+                    echo htmlspecialchars($_GET['var'.$k]) . " ";
                 }
                 echo "</h2>";
             /* Sinon, on affiche le message de bienvenue par défaut */
@@ -75,7 +73,7 @@ function afficherOption($value, $textDisplay, $isSelected = false)
                 $i = 1;
                 foreach ($tabExGen as $tabEx) { // Parcours du tableau général
                     $j = 1;
-                    echo "<select name='" . $i . "'>";
+                    echo "<select name='var" . $i . "'>";
                     // Parcours des sous tableaux de phrases
                     foreach ($tabEx as $phrase) {
                         // Si toutes les listes ont un élément sélectionné, on affiche la liste avec l'élément sélectionné
